@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        
+        .sidebar {
+            height: 100%;
+            width: 250px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            background-color: #333;
+            padding-top: 20px;
+        }
+        
+        .sidebar h2 {
+            color: white;
+            text-align: center;
+        }
+        
+        .sidebar ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        
+        .sidebar li {
+            padding: 10px;
+        }
+        
+        .sidebar a {
+            color: white;
+            text-decoration: none;
+        }
+        
+        .sidebar a:hover {
+            background-color: #555;
+        }
+        
+        .content {
+            margin-left: 250px;
+            padding: 20px;
+        }
+        
+        .tabcontent {
+            display: none;
+        }
+        
+        .tabcontent h2 {
+            color: #333;
+        }
+        
+    </style>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Get all elements with class="tabcontent" and hide them
+            var tabcontent = document.getElementsByClassName("tabcontent");
+            for (var i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+        
+            // Show the current tab, and add an "active" class to the button that opened the tab
+            var hash = window.location.hash;
+            if (hash) {
+                var tabId = hash.substring(1);
+                document.getElementById(tabId).style.display = "block";
+            } else {
+                document.getElementById("home").style.display = "block";
+            }
+        });
+        
+    </script>
+</head>
+<body>
+    <div class="sidebar">
+        <h2>Admin Panel</h2>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#profile">Profile</a></li>
+            <li><a href="#leave-status">Leave Application Status</a></li>
+            <li><a href="#contact-hod">Contact HOD</a></li>
+        </ul>
+    </div>
+
+    <div class="content">
+        <div id="home" class="tabcontent">
+            <h2>Home</h2>
+            <p>Welcome to the admin panel.</p>
+        </div>
+
+        <div id="profile" class="tabcontent">
+            <h2>Profile</h2>
+            <p>Edit your profile information here.</p>
+        </div>
+
+        <div id="leave-status" class="tabcontent">
+            <h2>Leave Application Status</h2>
+            <p>View and manage leave application status.</p>
+        </div>
+
+        <div id="contact-hod" class="tabcontent">
+            <h2>Contact HOD</h2>
+            <p>Contact the Head of Department here.</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
